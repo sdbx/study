@@ -14,7 +14,7 @@
 
 - 3 Git Branching
   - 3.1 Branches in a Nutshell
-  - 3.2 Basic Branching and Merging
+  - [3.2 Basic Branching and Merging](3.2/README.md)
   - 3.3 Branch Management
   - 3.4 Branching Workflows
   - 3.5 Remote Branches
