@@ -4,7 +4,7 @@
 
 - 1 Getting Started
   - 1.1 About Version Control
-  - 1.2 A Short History of Git
+  - [1.2 A Short History of Git](1.2/README.md)
   - 1.3 What is Git?
   - 1.4 The Command Line
   - 1.5 Installing Git
