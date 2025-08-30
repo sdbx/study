@@ -62,7 +62,7 @@ $ git log --oneline --graph
 |/
 * 0f84d82 # common ancestor
 ```
-이렇게 병합이 이루어지면, git은 이 three-way merge의 결과로 만들어진 새로운 스냅샷을 생성하고, 또 이 스냅샷을 가리키는 커밋을 생성한다. 이 커밋을 두고서 "merge commit"이라고 하며, 하나 이상의 부모 커밋이 있다는 특징이 있다. 또한, `main` 브랜치가 앞으로 이동해 해당 merge commit을 가리키게 된다.
+이렇게 병합이 이루어지면, git은 이 three-way merge의 결과로 만들어진 새로운 스냅샷을 생성하고, 또 이 스냅샷을 가리키는 커밋을 생성한다. 이 커밋을 두고서 "merge commit"이라고 하며, 둘 이상의 부모 커밋이 있다는 특징이 있다. 또한, `main` 브랜치가 앞으로 이동해 해당 merge commit을 가리키게 된다.
 
 참고로 ort는 ostensibly recursive's twin의 약자로, 원래 git의 기본 병합 알고리즘은 recursive였는데 바뀐 것으로 보인다.
 
