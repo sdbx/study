@@ -46,7 +46,7 @@ $ git branch --merge main
 
 ```bash
 # 로컬 브랜치 이름 바꾸기
-$ git branch --move bad-branch-name coorected-branch-name
+$ git branch --move bad-branch-name corrected-branch-name
 
 # 원격 브랜치 이름 반영
 $ git push --set-upstream origin corrected-branch-name # 새 이름 올리기
