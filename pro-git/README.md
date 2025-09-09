@@ -33,7 +33,7 @@
 
 - 4 Git on the Server
   - [4.1 The Protocols](4.1/README.md)
-  - 4.2 Getting Git on a Server
+  - [4.2 Getting Git on a Server](4.2/README.md)
   - 4.3 Generating Your SSH Public Key
   - 4.4 Setting Up the Server
   - 4.5 Git Daemon
