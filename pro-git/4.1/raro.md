@@ -1,0 +1,34 @@
+# 4.1 Git on the Server - The Protocols
+
+- bare 저장소: 작업 트리가 없는 Git 저장소. 원격 저장소는 모두 bare 저장소
+- 프로토콜 종류: Local, HTTP, SSH, Git
+- Local
+  - 특징: 하드 링크하거나 직접 복사. `file://` 프로토콜을 명시하면 네트워크를 통하여 완전히 복사함.
+  - 설정: 공유 디렉토리가 있다면 간단. 읽기 쓰기 권한만 주면 됨. 근데 공유 디렉토리 설정이 어렵다.
+  - 속도: 데이터 읽기 쓰기 속도를 따라감. 같은 호스트면 빠르지만, NFS 같이 네트워크를 타면 SSH보다 느림
+  - 보안: 원격의 `.git`을 직접 제어할 수 있어서 위험
+- HTTP
+  - Smart HTTP
+    - 사용: `https://example.com/project.git`
+    - 특징: 다양한 인증 방식 지원, 익명 접근 지원, Credential Storage를 쓰면 인증도 간단해짐
+    - 설정: HTTP, HTTPS가 보편적이라 기업 방화벽에서 포트를 신경 쓸 필요가 적음
+    - 속도: 빠름
+    - 보안: 다양한 인증 지원, HTTPS를 통한 암호화.
+  - Dumb HTTP
+    - 사용: `https://example.com/project.git`
+    - 특징: 단순 읽기 전용
+    - 설정: 간단. static 서버에 bare 저장소를 두고, post-update 훅을 설정하면 끝남
+    - 속도: 빠름
+    - 보안: 읽기 전용
+- SSH
+  - 사용: `ssh://[user@]server/project.git`, `[user@]server:project.git` (scp-like syntax)
+  - 특징: 익명 접근 미지원, 항상 SSH 접근 권한 필요
+  - 설정: 간단. 대부분의 서버가 SSH를 쓰기 때문
+  - 속도: 빠름
+  - 보안: SSH의 인증, 암호화를 따라감.
+- Git
+  - 사용: `git://example.com/project.git`
+  - 특징: 주로 오픈 프로젝트 읽기 전용으로 열음. 설정상 push 권한을 켤 수 있지만 누구나 push할 수 있기 때문에 비권장
+  - 설정: 복잡. `git-daemon-export-ok` 파일을 저장소에 만들면 9418 포트를 듣는 daemon이 돌아감. 흔한 포트가 아니기 때문에 방화벽 설정필요
+  - 속도: 가장 빠름(인증과 암호화가 없기 때문)
+  - 보안: 없음. 인증 X, 암호화 X. 임의 코드 실행(arbitrary code execution) 취약점 가능성 있음
