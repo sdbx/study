@@ -37,7 +37,7 @@
   - [4.3 Generating Your SSH Public Key](4.3/README.md)
   - [4.4 Setting Up the Server](4.4/README.md)
   - [4.5 Git Daemon](4.5/README.md)
-  - 4.6 Smart HTTP
+  - [4.6 Smart HTTP](4.6/README.md)
   - 4.7 GitWeb
   - 4.8 GitLab
   - 4.9 Third Party Hosted Options
