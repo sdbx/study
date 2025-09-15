@@ -41,7 +41,7 @@
   - [4.7 GitWeb](4.7/README.md)
   - [4.8 GitLab](4.8/README.md)
   - [4.9 Third Party Hosted Options](4.9/README.md)
-  - 4.10 Summary
+  - [4.10 Summary](4.10/README.md)
 
 - 5 Distributed Git
   - 5.1 Distributed Workflows
