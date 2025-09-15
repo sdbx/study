@@ -39,7 +39,7 @@
   - [4.5 Git Daemon](4.5/README.md)
   - [4.6 Smart HTTP](4.6/README.md)
   - [4.7 GitWeb](4.7/README.md)
-  - 4.8 GitLab
+  - [4.8 GitLab](4.8/README.md)
   - 4.9 Third Party Hosted Options
   - 4.10 Summary
 
