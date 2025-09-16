@@ -45,7 +45,7 @@
 
 - 5 Distributed Git
   - [5.1 Distributed Workflows](5.1/README.md)
-  - 5.2 Contributing to a Project
+  - [5.2 Contributing to a Project](5.2/README.md)
   - 5.3 Maintaining a Project
   - 5.4 Summary
 
