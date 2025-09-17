@@ -16,7 +16,7 @@
   - [2.1 Getting a Git Repository](2.1/README.md)
   - [2.2 Recording Changes to the Repository](2.2/README.md)
   - [2.3 Viewing the Commit History](2.3/README.md)
-  - 2.4 Undoing Things
+  - [2.4 Undoing Things](2.4/README.md)
   - 2.5 Working with Remotes
   - 2.6 Tagging
   - 2.7 Git Aliases
