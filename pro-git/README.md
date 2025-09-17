@@ -20,7 +20,7 @@
   - [2.5 Working with Remotes](2.5/README.md)
   - [2.6 Tagging](2.6/README.md)
   - [2.7 Git Aliases](2.7/README.md)
-  - 2.8 Summary
+  - [2.8 Summary](2.8/README.md)
 
 - 3 Git Branching
   - [3.1 Branches in a Nutshell](3.1/README.md)
