@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # utils or hoisted functions
 
 function err {
