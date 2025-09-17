@@ -19,7 +19,7 @@ checkout(명사)은 working copy of all of the repository’s files라는 의미
 [**(사진 참조)](https://git-scm.com/book/en/v2/images/lifecycle.png) 깃 레포지토리 내에 있는 모든 파일들은 `tracked` 혹은 `untracked` 둘 중 하나의 상태임.**
 
 - **tracked 상태라는 말의 뜻 = ▲ 이 파일은 지난 snapshot에 있었던 파일로서, unmodified, modified, 혹은 staged 중 하나의 상태이거나, ▲ 혹은 새롭게 staged된 파일이다.**
-- **untracked 상태라는 말의 뜻 = tracked 상태가 아니라는 의미이므로, 지난 snapshot에 있지 않았던 파일도 아니고, 새롭게 staged된 파일도 아니라는 뜻이다.**
+- **untracked 상태라는 말의 뜻 = tracked 상태가 아니라는 의미이므로, 지난 snapshot에 있었던 파일도 아니고, 새롭게 staged된 파일도 아니라는 뜻이다.**
 
 follow suit = (비유적) 다른사람의 행동을 좇아서 똑같이 하다
 
