@@ -19,7 +19,7 @@
   - [2.4 Undoing Things](2.4/README.md)
   - [2.5 Working with Remotes](2.5/README.md)
   - [2.6 Tagging](2.6/README.md)
-  - 2.7 Git Aliases
+  - [2.7 Git Aliases](2.7/README.md)
   - 2.8 Summary
 
 - 3 Git Branching
