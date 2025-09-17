@@ -10,7 +10,7 @@
   - [1.5 Installing Git](1.5/README.md)
   - [1.6 First-Time Git Setup](1.6/README.md)
   - [1.7 Getting Help](1.7/README.md)
-  - 1.8 Summary
+  - [1.8 Summary](1.8/README.md)
 
 - 2 Git Basics
   - [2.1 Getting a Git Repository](2.1/README.md)
