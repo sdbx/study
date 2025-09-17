@@ -9,7 +9,7 @@
   - [1.4 The Command Line](1.4/README.md)
   - [1.5 Installing Git](1.5/README.md)
   - [1.6 First-Time Git Setup](1.6/README.md)
-  - 1.7 Getting Help
+  - [1.7 Getting Help](1.7/README.md)
   - 1.8 Summary
 
 - 2 Git Basics
