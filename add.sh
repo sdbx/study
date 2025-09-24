@@ -80,7 +80,7 @@ if [ ! -f "$readme" ]; then
   echo "No README found for $chapter. Opening an editor to create a new one."
   echo "(Set the EDITOR environment variable to change the editor.)"
   echo "# $chapter " > "$readme"
-  $editor "$readme"
+  $editor "$readme" || exit 1
   git add "$readme"
   echo "done"
 
@@ -113,7 +113,7 @@ fi
 echo "Hello, $author. You are currently located at '$path'"
 
 echo "Opening editor for summary creation..."
-$editor $filename
+$editor $filename || exit 1
 echo "done"
 
 echo "Staging the summary..."
