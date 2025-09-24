@@ -51,7 +51,7 @@
 
 - 6 GitHub
   - [6.1 Account Setup and Configuration](6.1/README.md)
-  - 6.2 Contributing to a Project
+  - [6.2 Contributing to a Project](6.2/README.md)
   - 6.3 Maintaining a Project
   - 6.4 Managing an organization
   - 6.5 Scripting GitHub
