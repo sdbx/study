@@ -54,7 +54,7 @@
   - [6.2 Contributing to a Project](6.2/README.md)
   - [6.3 Maintaining a Project](6.3/README.md)
   - [6.4 Managing an organization](6.4/README.md)
-  - 6.5 Scripting GitHub
+  - [6.5 Scripting GitHub](6.5/README.md)
   - 6.6 Summary
 
 - 7 Git Tools
