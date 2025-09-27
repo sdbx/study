@@ -18,7 +18,7 @@
 
 ### PR 참조
 
-- PR은 pesudo-branch. `refs/pull/` 아래에 있음.
+- PR은 pseudo-branch. `refs/pull/` 아래에 있음.
 - 참고로 브랜치는 `refs/heads/` 아래에 있음
 - `refs/pull/#/head`: PR 브랜치의 마지막 커밋을 가리킴
 - `refs/pull/#/merge`: merge 버튼을 눌렀을 때 결과를 가리킴
