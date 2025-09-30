@@ -1,7 +1,7 @@
 # CODE OF CONDUCT
 * Sleep early and get up early
 * Keep moving and make a progress step by step
-* Exercise, Eat well, and stay healthy
+* Exercise, eat well, and stay healthy
 * Do one thing at a time; focus on
 * Be nice, gentle, and polite
 * Love 2D anime characters
