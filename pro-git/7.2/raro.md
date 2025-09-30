@@ -22,5 +22,5 @@
 
 - `git add -p|--patch`: 파일의 일부만 staging
 - `git reset --patch`: 파일의 일부만 reset
-- `git checkout --patch`: 파일의 일부만 checkout
-- `git stash save --patch`: 파일의 일부만 stash
+- `git restore --patch`: 파일의 일부만 discard
+- `git stash push --patch`: 파일의 일부만 stash
