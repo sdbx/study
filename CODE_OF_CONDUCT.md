@@ -1,3 +1,4 @@
+# CODE OF CONDUCT
 1. Sleep early and get up early
 1. Keep moving and make a progress step by step
 1. Exercise, Eat well, and stay healthy
