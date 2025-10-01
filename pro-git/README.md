@@ -61,7 +61,7 @@
   - [7.1 Revision Selection](7.1/README.md)
   - [7.2 Interactive Staging](7.2/README.md)
   - [7.3 Stashing and Cleaning](7.3/README.md)
-  - 7.4 Signing Your Work
+  - [7.4 Signing Your Work](7.4/README.md)
   - 7.5 Searching
   - 7.6 Rewriting History
   - 7.7 Reset Demystified
