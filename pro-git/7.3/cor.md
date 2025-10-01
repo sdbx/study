@@ -25,8 +25,9 @@ git stash --all | -a    # ignored 파일도 stash에 포함시키기
 git stash list
 
 # 적용하기 (apply했다고 해서 스택에서 사라지는 것은 아님)
+# 기본적으로는 staged 상태까지 복원되는 것은 아님
 git stash apply   # 가장 최근 내역 적용하기 (0번째)
-git stash apply stash@{n}     # n번째 기록 적용하기
+git stash apply stash@{n}     # n번째 기록 적용하기 / 매뉴얼 보니까 그냥 n이라고만 적어도 되는듯
 git stash apply --index    # staged 상태까지 복원
 
 # 내역 삭제
@@ -46,7 +47,7 @@ git stash branch <branch-name>
 - working directory를 정리하고 싶을 때 사용
 - tracked 되지 않은 파일을 작업영역에서 지우도록 설계된 명령어이므로 사용시 주의!!
 - 좀 더 안전한 선택지는 `git stash --all`
-- `git rm`과의 차이점은 clean은 작업영역에서 untracked인 파일을 지우는 것이고 rm은 작업영역과 스테이지영역에서 파일을 지우는 것임.
+- `git rm`과의 차이점은 clean은 작업영역에서 untracked인 파일을 지우는 것이고 rm은 작업영역과 스테이지영역에서 파일을 지우는 것임. (파일명 변경도 되는듯)
 - 작업영역안에 또 다른 깃 레포지토리가 들어있으면 -fd이더라도 지울 수 없음. 이럴 경우 -f를 한번 더 적어줘야 함.
 
 ```bash
@@ -71,3 +72,4 @@ git clean -idx
 - revert: 원래 상태로 되돌아가다 (to)
 - cruft: (computing, informal) 불필요한 것
 - quirky: 기이한
+- recurse: 재귀하다 라는 뜻인듯
