@@ -13,6 +13,10 @@
 - `gpg --list-keys` 로 키 목록 확인 가능
 - 사용할 키가 없다면 `gpg --gen-key`로 생성 가능
 - 사용할 키를 .gitconfig에 작성 => `git config --global user.signingkey <key>`
+   - <key> 부분에 들어가야 할 내용은 `gpg --list-keys --keyid-format=long` 을 하면 보이는 듯 (16자리)
+   - 맨 마지막 8자리만 해도 되는 것 같음
+   - <key> 부분은 gpg에 바로 전달된다는 것 같음. (매뉴얼 참고)
+   - <key> 뒤에 느낌표를 붙이면 명시된 primary나 secondary 키를 사용하라고 강제하는 의미인 것 같음 (gpg 매뉴얼 참고)
 - 이 키가 커밋과 태그에 서명하는데 사용됨
 
 ## 태그에 서명하기
@@ -38,3 +42,4 @@
 
 ## 영어 공부
 - foolproof: 잘못될 염려가 없는
+- signature[시그너처]: 서명; 특징
