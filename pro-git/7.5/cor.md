@@ -25,6 +25,7 @@ git grep -n|--line-number <string>
 git grep -c|--count <string>
 
 # <string>이 등장하는 맥락도 같이 출력
+# 함수명이 계산되는 방식을 직접 지정할 수도 있는 것 같음 (매뉴얼 참고)
 git grep -p|--show-function
 
 # 패턴 지정
@@ -65,3 +66,4 @@ git log -L<start>,<end>:<file>
 
 ## 영어 공부
 - plethora[플래서러]: 과다, 과잉(excess)
+- work sth out: ~을 계산하다
