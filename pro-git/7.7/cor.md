@@ -132,6 +132,8 @@
 ## 요약!
 - `reset`과 `checkout` 모두 세 가지 트리에 영향을 미침
 - 그리고 path가 지정됐는지의 여부에 따라 작동방식이 달라짐
+- **wd-safe하지 않은 명령어는 git reset --hard commit과 git checkout commit -- path임!**
+   - 사용하기 전에 생각하자.
 
 ### 커밋 수준에서의 행동
 - `git reset --soft <commit>`은 head가 가리키는 ref를 움직이고, index와 wd를 변경하지 않는다. 따라서 wd-safe.
