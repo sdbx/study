@@ -64,7 +64,7 @@
   - [7.4 Signing Your Work](7.4/README.md)
   - [7.5 Searching](7.5/README.md)
   - [7.6 Rewriting History](7.6/README.md)
-  - 7.7 Reset Demystified
+  - [7.7 Reset Demystified](7.7/README.md)
   - 7.8 Advanced Merging
   - 7.9 Rerere
   - 7.10 Debugging with Git
