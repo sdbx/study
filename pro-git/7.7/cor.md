@@ -1,7 +1,11 @@
 # 7.7 리셋
 
 ## 학습목표
-- git reset에 대해 이해한다.
+- git reset이 어떻게 동작하는지 이해한다.
+- git checkout이 어떻게 동작하는지 이해한다.
+- wd-safe하지 않은 명령어 2종을 기억한다.
+   - `git reset --hard <commit>` => HEAD == index == wd
+   - `git checkout [<commit>] -- <path>` => HEAD는 제자리 / index == wd
 
 ## 개요
 - git reset과 git checkout은 많은 일을 하기 때문에 처음 봤을 때는 좀처럼 이해하기 힘들 수 있음
@@ -124,9 +128,11 @@
 
 ### path를 주었을 때
 - `git checkout [<tree-ish>] [--] <pathspec>...`
+- tree-ish가 주어지지 않으면 인덱스에 있는 파일의 내용으로 작업영역의 파일을 덮어씌운다.
+- tree-ish가 주어지면 tree-ish에 있는 파일의 내용으로 인덱스의 파일과 작업영역의 파일을 덮어씌운다.
 - 해당 커밋에 있는 파일로 index를 갱신하고, 작업영역에 있는 파일을 덮어씌운다.
    - 즉, wd-safe 하지 않음
-   - `git reset <commit> <file>`은 해당 커밋에 있는 파일로 index만 갱신하였음
+   - `git reset <commit> <file>`의 경우, 해당 커밋에 있는 파일로 index만 갱신되었음
 - HEAD를 움직이지 않는다.
 
 ## 요약!
