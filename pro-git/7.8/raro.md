@@ -71,7 +71,7 @@ $ git merge-file -p hello.ours.rb hello.common.rb hello.theirs.rb > hello.rb
 - 첫 번째 열: ours와 작업 디렉토리 간 차이
 - 두 번째 열: theirs와 작업 디렉토리 간 차이
 
-- combinded diff format을 사용하는 경우:
+- combined diff format을 사용하는 경우:
   - 병합 충돌 상태에서 `git diff` 실행
   - 병합 커밋에 대해 `git diff`
   - 병합 커밋에 대해 `git show`
