@@ -1,7 +1,19 @@
 # 7.8 고급 병합 기법
 
 ## 학습목표
--
+- 병합이 진행중인 상태에서 탈출하는 방법을 숙지한다: `git merge --abort` `git reset --hard HEAD`
+- 수동으로 병합을 진행하는 방법에 대해서 이해한다: `git merge-file`
+- 병합 작업 중 도움이 되는 명령어를 숙지한다: `git checkout --conflict` `git checkout --ours` `git log --merge`
+- combined diff format에 대해 이해한다.
+- 이미 실행된 병합을 되돌리는 방법을 이해한다: `git reset --hard HEAD^` `git revert`
+   - revert시 병합 커밋은 여전히 이력에 남아있다는 것과 그 여파를 이해한다.
+- 병합 전략에 대해 이해한다.
+   - ours 전략에 대해 이해한다.
+   - recursive 전략에서 `--ours` `--theirs` 옵션이 가지는 의미를 이해하고, ours 병합 전략과의 차이를 이해한다.
+- subtree의 개념에 대해 이해한다.
+   - 한 레포지토리 내에 다수의 project root이 있을 수 있음을 이해한다.
+   - 레포지토리 내 모든 브랜치가 같은 프로젝트의 브랜치가 아닐 수 있다는 사실을 이해한다.
+   - `git read-tree` `git diff-tree` 명령어가 어떻게 사용되는지 확인한다.
 
 ## 병합 충돌
 ### 팁
@@ -20,8 +32,8 @@
 - 충돌사항을 봤을때 한쪽에서는 모든 줄이 지워지고 다른 쪽에서는 다시 추가되고 있다 => 이 충돌은 공백에 관련된 문제를 가지고 있다
 - 기본 병합 전략은 인자를 취할 수 있고 그 중 일부는 공백 변화를 적절하게 무시하기 위함
 - 공백으로 인한 충돌이라면, 병합을 abort한 뒤 다음의 인자로 병합 재시도
-   - `-Xignore-space-change`: 줄을 비교할때 공백을 완전히 무시
-   - `-Xignore-all-space`: 하나 이상의 공백문자열을 동등하게 취급
+   - `-Xignore-space-change`: 하나 이상의 공백문자열을 동등하게 취급
+   - `-Xignore-all-space`: 줄을 비교할때 공백을 완전히 무시
 
 ### 수동으로 파일 병합하기
 - 파일을 수동으로 병합하려면 한 파일의 3가지 버전의 사본이 필요함
@@ -48,14 +60,21 @@
    - `git diff --base`: 결과를 common과 비교하기 => theirs와 ours가 도입하는 변경사항 확인하기
 - 병합 작업이 마무리되었으니 `git clean -f`로 수동 병합에 사용했던 파일들 삭제
 
-### checkout으로 충돌의 맥락 파악하기
-- `git checkout --conflict[=diff3|merge] <file>`
-   - 파일을 다시 checkout한 뒤 merge conflict marker를 재배치한다.
-   - marker를 초기화하고 충돌을 다시 해결하려고 할 때 유용하다.
-   - `diff3`를 지정하면 ours와 theirs뿐만 아니라 base까지 같이 나옴
-   - `merge`가 기본값
-- `git checkout --ours|--theirs`
-   - 한쪽을 고를 수 있음
+### checkout으로 충돌 상황 재현하기
+`git checkout --conflict[=diff3|merge] <file>`
+- 파일을 다시 checkout한 뒤 merge conflict marker를 재배치한다.
+- marker를 초기화하고 충돌을 다시 해결하려고 할 때 유용하다.
+- `diff3`를 지정하면 ours와 theirs뿐만 아니라 base까지 같이 나옴
+- `merge`가 기본값
+
+### checkout으로 한쪽만 취하기
+`git checkout --ours|--theirs`
+- 한쪽을 고를 수 있음
+- "The contents from a specific side of the merge can be checked out of the index by using --ours or --theirs."
+
+### diff3 기본값으로 지정하기
+`git config --global merge.conflictstyle diff3`
+- zdiff3이 최신인 듯
 
 ### log를 통해 맥락 파악하기
 - `git log --oneline --left-right HEAD...MERGE_HEAD`
@@ -74,6 +93,7 @@
 - 병합 이후에도 combined diff format을 확인할 수 있음
    - 머지커밋에 대해 아래의 명령 실행
    - `git log --cc -p`
+      - "Produce dense combined diff output for merge commits. Shortcut for --diff-merges=dense-combined -p."
       - `-p`는 기본적으로 비머지커밋에 대해서만 패치를 출력
    - 혹은 `git show <merge-commit>`
 
