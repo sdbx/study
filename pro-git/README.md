@@ -69,7 +69,7 @@
   - [7.9 Rerere](7.9/README.md)
   - [7.10 Debugging with Git](7.10/README.md)
   - [7.11 Submodules](7.11/README.md)
-  - 7.12 Bundling
+  - [7.12 Bundling](7.12/README.md)
   - 7.13 Replace
   - 7.14 Credential Storage
   - 7.15 Summary
