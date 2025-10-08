@@ -34,7 +34,7 @@
 - 위 방법보다 더 간편한 방법이 있음
 - 그건 바로 `git clone` 할 때 아예 `--recurse-submodules` 옵션을 명시하는 것임
 - 이러면 레포지토리에 포함된 서브모듈 뿐만 아니라, 중첩된 서브모듈, 즉 서브모듈 내에 포함된 서브모듈도 알아서 초기화 및 갱신됨
-- 클론할때 저 옵션 주는걸 깜빡했다면, `git submodule update --init --recurse` 명령을 주면 됨
+- 클론할때 저 옵션 주는걸 깜빡했다면, `git submodule update --init --recursive` 명령을 주면 됨
 
 ## 서브모듈을 가진 프로젝트에서 작업하기
 ### 서브모듈의 원격에서 변경사항 내려받기
@@ -77,7 +77,7 @@ superproject를 pull했는데 내려받은 커밋 중에서 .gitmodules 파일 �
 - detached HEAD 상태 = 변경사항을 track하는 local working branch가 없다 = 서브모듈에 커밋을 해도 다음번 `update`에 잃어버릴지도 모름
 - 따라서, 서브모듈에서 작업하려면 아래와 같이 해야 함
    - 서브모듈에 가서 (`cd <submodule>/`) 작업할 브랜치로 이동함 (`git checkout <branch>`)
-   - `git submodule update --remote <--merge|--rebase>`
+   - (superproject에서) `git submodule update --remote <--merge|--rebase>`
       - merge 혹은 rebase 옵션 지정을 안하면 그냥 업데이트되고 detached HEAD 상태로 됨
       - 설령 그렇게 되었다 할지라도 다시 그 브랜치로 가서 `origin/<branch>`로 직접 merge나 rebase 하면 그만임
 - 커밋하지 않은 상태에서 `update`를 하면 fetch는 되지만 에러가 나면서 overwrite는 되지 않음
