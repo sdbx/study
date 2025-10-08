@@ -71,7 +71,7 @@
   - [7.11 Submodules](7.11/README.md)
   - [7.12 Bundling](7.12/README.md)
   - [7.13 Replace](7.13/README.md)
-  - 7.14 Credential Storage
+  - [7.14 Credential Storage](7.14/README.md)
   - 7.15 Summary
 
 - 8 Customizing Git
