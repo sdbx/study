@@ -72,7 +72,7 @@
   - [7.12 Bundling](7.12/README.md)
   - [7.13 Replace](7.13/README.md)
   - [7.14 Credential Storage](7.14/README.md)
-  - 7.15 Summary
+  - [7.15 Summary](7.15/README.md)
 
 - 8 Customizing Git
   - 8.1 Git Configuration
