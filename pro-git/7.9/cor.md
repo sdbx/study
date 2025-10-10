@@ -24,7 +24,7 @@
    - 병합이 해결된 상태의 파일 전체가 들어있는 것으로 보임
 - 이제 나중에 같은 파일에서 같은 충돌을 만나면 `Resolved 'file' using previous resolution`이라고 나오면서 자동으로 충돌이 해결되어있음
    - 파일을 직접 열어봐도 되고 `git diff [<file>]`로 확인해볼수도 있음
-- `git checkout --conflict=merge -- file`로 충돌상황을 재현한다음에 직접 `git rerere` 하면 다시 자동으로 해결됨
+- `git checkout --conflict=merge -- file`로 충돌 상황을 재현한 다음에 직접 `git rerere` 하면 다시 자동으로 해결됨
 - `git rerere gc`로 15일 지난 unresolved conflict랑 60일 지난 resolved conflict 삭제 가능
 - 한편 preimage, postimage 말고 thisimage란 파일도 생성되는거같은데 아마 rerere가 적용됐을때 이 파일이 생성되는걸로 추정 (확인은 안해봄)
 
