@@ -21,6 +21,10 @@
 - 여러개의 헬퍼를 지정할수도 있음
    - 자격증명을 질의할때는 순차적으로 진행되고 첫번째 답변이 제공되면 멈춤
    - 자격증명을 저장할때는 모든 헬퍼에 아뒤/비번을 보냄
+- `credential.helper` 값이 해석되는 방식
+   - `prog --opt=test` => `git credential-prog --opt=test`
+   - `/path/prog -opt` => 해당 경로의 프로그램을 실행
+   - `!f() { echo "password=s3cre7"; } f` => `!` 뒤의 코드가 쉘에서 평가됨
 
 ```bash
 # 예시 설정
@@ -36,10 +40,6 @@
 - subcommand를 인자로 받고 stdin로부터 "credential description"을 읽음
 - helper를 실행하는데 이것은 git과는 별도의 프로그램임
 - 어떤 helper를 어떻게 실행할지는 `credential.helper` 값에 달려있음
-- `credential.helper` 값이 해석되는 방식
-   - `prog --opt=test` => `git credential-prog --opt=test`
-   - `/path/prog -opt` => 해당 경로의 프로그램을 실행
-   - `!f() { echo "password=s3cre7"; } f` => `!` 뒤의 코드가 쉘에서 평가됨
 
 ### fill 하위명령어
 - `fill`은 config 파일을 읽거나, 설정된 자격증명 헬퍼를 실행하거나, 사용자에게 물어봄으로써 "username"과 "password" 항목을 description에 추가하려고 시도함
