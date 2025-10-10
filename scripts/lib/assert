@@ -1,0 +1,8 @@
+#!/bin/bash
+
+function assert-not-null {
+  if [ -z "$1" ]; then
+    err "$2"
+    exit 1
+  fi
+}

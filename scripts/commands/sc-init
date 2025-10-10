@@ -1,0 +1,8 @@
+#!/bin/bash
+
+chmod +x scripts/commands/*
+
+if [ ! -f ".env" ] && [ ! -f ".env.local" ]; then
+  cp .env.example .env
+  echo "The .env file has been created."
+fi
