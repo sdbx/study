@@ -7,6 +7,7 @@
 - "프로젝트 A에서 작업중인데 프로젝트 B를 A 내에서 사용하고 싶다."
 - A와 B를 별도로 취급하면서도 B를 A 내에서 사용할 수 있는 방법이 없는가?
 - 이러한 문제를 git은 submodule을 통해 해결한다.
+- 깃 저장소가 다른 깃 저장소의 subdirectory에 위치하는 것으로 보인다.
 
 ## 서브모듈 사용법
 ### 추가
@@ -77,7 +78,7 @@ superproject를 pull했는데 내려받은 커밋 중에서 .gitmodules 파일 �
 - detached HEAD 상태 = 변경사항을 track하는 local working branch가 없다 = 서브모듈에 커밋을 해도 다음번 `update`에 잃어버릴지도 모름
 - 따라서, 서브모듈에서 작업하려면 아래와 같이 해야 함
    - 서브모듈에 가서 (`cd <submodule>/`) 작업할 브랜치로 이동함 (`git checkout <branch>`)
-   - (superproject에서) `git submodule update --remote <--merge|--rebase>`
+   - (superproject에서) `git submodule update --remote (--merge|--rebase)`
       - merge 혹은 rebase 옵션 지정을 안하면 그냥 업데이트되고 detached HEAD 상태로 됨
       - 설령 그렇게 되었다 할지라도 다시 그 브랜치로 가서 `origin/<branch>`로 직접 merge나 rebase 하면 그만임
 - 커밋하지 않은 상태에서 `update`를 하면 fetch는 되지만 에러가 나면서 overwrite는 되지 않음
@@ -87,7 +88,7 @@ superproject를 pull했는데 내려받은 커밋 중에서 .gitmodules 파일 �
 - 메인 프로젝트만 push하면 안되고 서브모듈에 있는 변경사항도 같이 push해야함
 - 그렇지 않으면 메인프로젝트가 의존하는 서브모듈의 변경사항을 다른 사람이 얻을 방법이 없기 때문
 - 메인 프로젝트를 push하기 이전에 모든 서브모듈들이 적절히 push되었는지 검사해야 함
-- `git push --recurse-submodules=<check|on-demand>`
+- `git push --recurse-submodules=(check|on-demand)`
    - `check`로 지정하면 서브모듈에 있는 커밋된 변경사항이 push되지 않았을 경우 push가 실패함
    - `on-demand`로 지정하면 알아서 모든걸 push해 줌 (특정 이유로 서브모듈 push가 실패시 메인 push도 실패)
 - 특정 옵션을 기본값으로 지정하려면 `git config push.recurseSubmodules <check|on-demand>`
@@ -118,7 +119,7 @@ superproject를 pull했는데 내려받은 커밋 중에서 .gitmodules 파일 �
 
 ## 서브모듈 사용시 주의할 점
 ### 브랜치 전환
-- 이전 버전의 깃에서는 브랜치간 전환에 불편함이 있었던 듯
+- 이전 버전의 깃에서는 서브모듈을 추가한 브랜치와 그렇지 않은 브랜치간 전환에 불편함이 있었던 듯
 - 2.13 버전 이후로는 `git checkout --recurse-submodules` 하면 됨
 - 위에서 언급된대로 gitconfig에 recurse-submodules 옵션을 지원하는 명령어에서는 항상 이 옵션을 사용하도록 할 수 있음 (clone 제외)
 
