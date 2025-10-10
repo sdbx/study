@@ -75,7 +75,7 @@
   - [7.15 Summary](7.15/README.md)
 
 - 8 Customizing Git
-  - 8.1 Git Configuration
+  - [8.1 Git Configuration](8.1/README.md)
   - 8.2 Git Attributes
   - 8.3 Git Hooks
   - 8.4 An Example Git-Enforced Policy
