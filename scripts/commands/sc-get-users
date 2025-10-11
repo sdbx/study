@@ -1,0 +1,10 @@
+#!/bin/bash
+
+. "$(dirname "$0")/../lib/prelude"
+
+load-env
+verify-env
+
+TARGET_PATH="$TEXTBOOK"
+
+echo $(find "$TARGET_PATH" -name "*.md" -not -name "README.md" | xargs -n1 basename | sed 's/\.md$//' | sort -u)

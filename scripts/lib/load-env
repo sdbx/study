@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function load-env() {
+  if [ -f "./.env.local" ]; then
+    . "./.env.local"
+  elif [ -f "./.env" ]; then
+    . "./.env"
+  fi
+}

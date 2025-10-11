@@ -1,0 +1,135 @@
+#!/bin/bash
+
+# utils or hoisted functions
+
+function help {
+  echo 'usage: ./sc add <chapter-number>'
+  echo '       ./sc add help'
+}
+
+# routing
+
+if [ "$1" = 'help' ]; then
+  help
+  exit 0
+fi
+
+# configurations
+
+. "$(dirname "$0")/../lib/prelude"
+
+load-env
+verify-env
+
+CHAPTER="$1"
+if [ -z "$CHAPTER" ]; then
+  err 'chapter-number must not be empty'
+  help
+  exit 1
+fi
+
+
+# consts
+
+textbook_readmd="$TEXTBOOK/README.md"
+path="$TEXTBOOK/$CHAPTER"
+filename="$path/$AUTHOR.md"
+readme="$path/README.md"
+
+# run...
+
+if [ ! -d "$path" ]; then
+  echo "Directory '$path' not found. Creating now..."
+  mkdir -p "$path"
+fi
+
+if [ ! -f "$readme" ]; then
+  echo "No README found for $CHAPTER. Opening an editor to create a new one."
+  echo "(Set the EDITOR environment variable to change the editor.)"
+  echo "# $CHAPTER " > "$readme"
+  $EDITOR "$readme" || exit 1
+  git add "$readme"
+  echo "done"
+
+  echo "update $textbook_readmd"
+  sed -i -E "s|- ($CHAPTER .+)|- [\1]($CHAPTER/README.md)|" "$textbook_readmd"
+  git add "$textbook_readmd"
+fi
+
+another_files=`git diff --staged --name-only | grep -v -e "$textbook_readmd" -e "$readme"`
+updated_files=`git diff --staged --name-only | grep -e "$textbook_readmd" -e "$readme"`
+
+if [ ! -z "$updated_files" ]; then
+  if [ -z "$another_files" ]; then
+    commit_message="chore: mkdir $CHAPTER/ and update the relevants"
+    echo "Committing with message: '$commit_message'"
+    while true; do
+      read -n 1 -p "Would you like to commit now? (Y/n): " choice
+      case "$choice" in
+        [Nn]* ) break;;
+        * ) git commit -m "$commit_message"; break;;
+      esac
+    done
+  else
+    err "The staging area is not clean."
+    git diff --staged --name-only 1>&2
+    exit 1
+  fi
+fi
+
+echo "Hello, $AUTHOR. You are currently located at '$path'"
+
+echo "Opening editor for summary creation..."
+$EDITOR $filename || exit 1
+echo "done"
+
+echo "Staging the summary..."
+git add $filename
+git diff --staged
+
+updated_files=`git diff --staged --name-only`
+
+if [ -z "$updated_files" ]; then
+  echo "No changes."
+  exit 0
+fi
+
+if [ ! "$updated_files" = "$filename" ]; then
+  err "The staging area is not clean."
+  git diff --staged --name-only 1>&2
+  exit 1
+fi
+
+echo "Fetching..."
+git fetch
+
+amendable_hash=`git branch -vv | grep '*' | grep -v '\[origin/main\]' | grep -E "learn: .+ $CHAPTER" | awk '{print $3}'`
+prev_commit_hash=`git log --author $GIT_AUTHOR --grep "learn: .* $CHAPTER" --pretty=format:%h`
+commit_message="learn: add the summary of $CHAPTER"
+
+if [ ! -z "$amendable_hash" ]; then
+  echo "Committing with message: '$commit_message'"
+  # amendable
+  while true; do
+    read -n 1 -p "Would you like to amend the commit now? (Y/n): " choice
+    case "$choice" in
+      [Nn]* ) break;;
+      * ) git commit --amend -m "$commit_message"; break;;
+    esac
+  done
+else
+  # not amendable
+  if [ -z "$prev_commit_hash" ]; then
+    echo "Committing with message: '$commit_message'"
+    while true; do
+      read -n 1 -p "Would you like to commit now? (Y/n): " choice
+      case "$choice" in
+        [Nn]* ) break;;
+        * ) git commit -m "$commit_message"; break;;
+      esac
+    done
+  else
+    err "An earlier commit exists. Please update it manually."
+    git show -s --abbrev-commit $prev_commit_hash
+  fi
+fi

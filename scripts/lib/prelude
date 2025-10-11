@@ -1,0 +1,7 @@
+#!/bin/bash
+
+. "./scripts/lib/stdio"
+. "./scripts/lib/load-env"
+. "./scripts/lib/verify-env"
+
+. "./scripts/lib/assert"

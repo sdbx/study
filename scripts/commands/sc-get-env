@@ -1,0 +1,11 @@
+#!/bin/bash
+
+. "$(dirname "$0")/../lib/prelude"
+
+load-env
+verify-env
+
+arg="$1"
+assert-not-null "$arg" 'The first argument should not be null'
+
+echo "${!arg}"

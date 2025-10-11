@@ -1,0 +1,21 @@
+#!/bin/bash
+
+function verify-env() {
+  if [ -z "$AUTHOR" ]; then
+    err 'Environment variable 'AUTHOR' must not be empty'
+    exit 1
+  fi
+
+  if [ -z "$GIT_AUTHOR" ]; then
+    GIT_AUTHOR="$AUTHOR"
+  fi
+
+  if [ -z "$EDITOR" ]; then
+    EDITOR=`git config get core.editor`
+  fi
+
+  if [ -z $TEXTBOOK ]; then
+    err 'Environment variable 'TEXTBOOK' must not be empty'
+    exit 1
+  fi
+}

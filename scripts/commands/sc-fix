@@ -1,0 +1,89 @@
+#!/bin/bash
+
+function help {
+  echo 'usage: ./sc fix <chapter-number>'
+  echo '       ./sc fix help'
+}
+
+if [ "$1" = 'help' ]; then
+  help
+  exit 0
+fi
+
+. "$(dirname "$0")/../lib/prelude"
+
+load-env
+verify-env
+
+chapter="$1"
+if [ -z "$chapter" ]; then
+  err 'chapter-number must not be empty' 
+  help
+  exit 1
+fi
+
+path="$TEXTBOOK/$chapter"
+filename="$path/$AUTHOR.md"
+
+if [ ! -f "$filename" ]; then
+  err "File '$filename' not found. Try './sc add $chapter'"
+  exit 1
+fi
+
+indexfiles=$(git diff --staged --name-only)
+
+if [ ! -z "$indexfiles" ] && [ "$indexfiles" != "$filename" ]; then
+  err 'Git index is not empty'
+  git status -s
+  exit 1
+fi
+
+echo "Fix '$filename'"
+
+$EDITOR $filename
+
+git add $filename
+
+function verify-index {
+  indexfiles=$(git diff --staged --name-only)
+  if [ "$indexfiles" != "$filename" ]; then
+    err 'No changes or Git index is dirty'
+    git status -s
+    exit 1
+  fi
+
+  checked=$(git diff --staged --check)
+  if [ ! -z "$checked" ]; then
+    err 'git diff --staged --check'
+    git diff --staged --check
+    exit 1
+  fi
+}
+
+verify-index
+
+default_commit_message="fix: elaborate $chapter"
+
+function interative-commit-help {
+  echo "y       - commit with default message"
+  echo "n       - do not commit"
+  echo "e       - commit with custom message via editor"
+  echo "?       - show this help"
+  echo
+}
+
+echo "Committing with message: '$default_commit_message'"
+
+while true; do
+  read -n 1 -p "Would you like to commit with this message? (Y/n/e/?): " choice
+  echo
+
+  verify-index
+
+  case "$choice" in
+    [?]* ) interative-commit-help; continue;;
+    [Nn]* ) break;;
+    [Ee]* ) git commit; break;;
+    * ) git commit -m "$default_commit_message"; break;;
+  esac
+done
