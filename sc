@@ -3,8 +3,12 @@
 cmd="$1"
 args="${@:2}"
 
-if [ -z "$cmd" ]; then
+function help {
   echo "usage: ./sc <command> [<args>]"
+}
+
+if [ -z "$cmd" ]; then
+  help
   exit 0
 fi
 
@@ -19,5 +23,6 @@ elif [ -f "$PATH/sc-$cmd" ]; then
   "$PATH/sc-$cmd" $args
 else
   . "./scripts/lib/stdio"
-  warn "'$cmd' is not a sc command. See './sc help'"
+  warn "'$cmd' is not a 'sc' command."
+  help
 fi
