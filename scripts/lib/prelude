@@ -5,3 +5,5 @@
 . "./scripts/lib/verify-env"
 
 . "./scripts/lib/assert"
+
+. "./scripts/lib/colors"
