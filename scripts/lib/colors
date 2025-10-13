@@ -20,7 +20,7 @@ function color {
   fi
 }
 
-# presets
+# color code table
 declare -A __Ctable
 
 __Ctable['reset']=0
@@ -71,3 +71,17 @@ __Ctable['bg_br_blue']=104
 __Ctable['bg_br_purple']=105
 __Ctable['bg_br_cyan']=106
 __Ctable['bg_br_white']=107
+
+# presets
+Creset="$(color 'reset')"
+Cdim="$(color 'dim')"
+
+Cblack="$(color 'black')"
+Cred="$(color 'red')"
+Cgreen="$(color 'green')"
+Cyellow="$(color 'yellow')"
+Cblue="$(color 'blue')"
+Cpurple="$(color 'purple')"
+Ccyan="$(color 'cyan')"
+Cwhite="$(color 'white')"
+
