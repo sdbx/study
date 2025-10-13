@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. "./scripts/lib/colors"
+
+. "./scripts/lib/stdio"
+. "./scripts/lib/load-env"
+. "./scripts/lib/verify-env"
+
+. "./scripts/lib/assert"

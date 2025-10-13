@@ -1,0 +1,87 @@
+#!/bin/bash
+
+test -t 1
+is_stdout_atty="$?"
+
+function color {
+  if [ "$is_stdout_atty" = "0" ]; then
+    declare -a input=("${@:-0}")
+    for i in $(seq 0 $((${#input[@]} - 1))); do
+      local value="${input[$i]}"
+      value="${__Ctable[$value]}"
+      if [ ! -z "$value" ]; then
+        input[$i]="$value"
+      fi
+    done
+
+    local IFS=';'
+    local c="${input[*]}"
+    printf "\e[${c}m"
+  fi
+}
+
+# color code table
+declare -A __Ctable
+
+__Ctable['reset']=0
+__Ctable['bold']=1
+__Ctable['dim']=2
+__Ctable['ul']=4
+__Ctable['blink']=5
+__Ctable['reverse']=7
+
+__Ctable['black']=30
+__Ctable['red']=31
+__Ctable['green']=32
+__Ctable['yellow']=33
+__Ctable['blue']=34
+__Ctable['purple']=35
+__Ctable['cyan']=36
+__Ctable['white']=37
+__Ctable['set']=38
+__Ctable['set8']='38;5'
+__Ctable['set24']='38;2'
+
+__Ctable['bg_black']=40
+__Ctable['bg_red']=41
+__Ctable['bg_green']=42
+__Ctable['bg_yellow']=43
+__Ctable['bg_blue']=44
+__Ctable['bg_purple']=45
+__Ctable['bg_cyan']=46
+__Ctable['bg_white']=47
+__Ctable['bg_set']=48
+__Ctable['bg_set8']='48;5'
+__Ctable['bg_set24']='48;2'
+
+__Ctable['br_black']=90
+__Ctable['br_red']=91
+__Ctable['br_green']=92
+__Ctable['br_yellow']=93
+__Ctable['br_blue']=94
+__Ctable['br_purple']=95
+__Ctable['br_cyan']=96
+__Ctable['br_white']=97
+
+__Ctable['bg_br_black']=100
+__Ctable['bg_br_red']=101
+__Ctable['bg_br_green']=102
+__Ctable['bg_br_yellow']=103
+__Ctable['bg_br_blue']=104
+__Ctable['bg_br_purple']=105
+__Ctable['bg_br_cyan']=106
+__Ctable['bg_br_white']=107
+
+# presets
+Creset="$(color 'reset')"
+Cdim="$(color 'dim')"
+
+Cblack="$(color 'black')"
+Cred="$(color 'red')"
+Cgreen="$(color 'green')"
+Cyellow="$(color 'yellow')"
+Cblue="$(color 'blue')"
+Cpurple="$(color 'purple')"
+Ccyan="$(color 'cyan')"
+Cwhite="$(color 'white')"
+
