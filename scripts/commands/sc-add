@@ -39,21 +39,23 @@ readme="$path/README.md"
 # run...
 
 if [ ! -d "$path" ]; then
-  echo "Directory '$path' not found. Creating now..."
+  echo "Directory ${Cblue}'$path'${Creset} not found. Creating now..."
+  echo
   mkdir -p "$path"
 fi
 
 if [ ! -f "$readme" ]; then
-  echo "No README found for $CHAPTER. Opening an editor to create a new one."
-  echo "(Set the EDITOR environment variable to change the editor.)"
+  echo "No ${Cblue}'README'${Creset} found for ${Cred}$CHAPTER${Creset}. Opening an editor to create a new one."
+  echo "${Cdim}(Set the EDITOR environment variable to change the editor.)${Creset}"
   echo "# $CHAPTER " > "$readme"
   $EDITOR "$readme" || exit 1
   git add "$readme"
-  echo "done"
+  echo "${Cdim}done${Creset}"
 
-  echo "update $textbook_readmd"
+  echo "update ${Cblue}'$textbook_readmd'${Creset}"
   sed -i -E "s|- ($CHAPTER .+)|- [\1]($CHAPTER/README.md)|" "$textbook_readmd"
   git add "$textbook_readmd"
+  echo
 fi
 
 another_files=`git diff --staged --name-only | grep -v -e "$textbook_readmd" -e "$readme"`
@@ -62,14 +64,16 @@ updated_files=`git diff --staged --name-only | grep -e "$textbook_readmd" -e "$r
 if [ ! -z "$updated_files" ]; then
   if [ -z "$another_files" ]; then
     commit_message="chore: mkdir $CHAPTER/ and update the relevants"
-    echo "Committing with message: '$commit_message'"
+    echo "Committing with message: ${Cblue}'$commit_message'${Creset}"
     while true; do
       read -n 1 -p "Would you like to commit now? (Y/n): " choice
+      echo
       case "$choice" in
         [Nn]* ) break;;
         * ) git commit -m "$commit_message"; break;;
       esac
     done
+    echo
   else
     err "The staging area is not clean."
     git diff --staged --name-only 1>&2
@@ -77,12 +81,13 @@ if [ ! -z "$updated_files" ]; then
   fi
 fi
 
-echo "Hello, $AUTHOR. You are currently located at '$path'"
+echo "Hello, ${Cred}$AUTHOR${Creset}. You are currently located at ${Cblue}'$path'${Creset}"
 
 echo "Opening editor for summary creation..."
 $EDITOR $filename || exit 1
-echo "done"
+echo "${Cdim}done${Creset}"
 
+echo
 echo "Staging the summary..."
 git add $filename
 git diff --staged
@@ -100,6 +105,7 @@ if [ ! "$updated_files" = "$filename" ]; then
   exit 1
 fi
 
+echo
 echo "Fetching..."
 git fetch
 
@@ -108,10 +114,11 @@ prev_commit_hash=`git log --author $GIT_AUTHOR --grep "learn: .* $CHAPTER" --pre
 commit_message="learn: add the summary of $CHAPTER"
 
 if [ ! -z "$amendable_hash" ]; then
-  echo "Committing with message: '$commit_message'"
+  echo "Committing with message: ${Cblue}'$commit_message'${Creset}"
   # amendable
   while true; do
     read -n 1 -p "Would you like to amend the commit now? (Y/n): " choice
+    echo
     case "$choice" in
       [Nn]* ) break;;
       * ) git commit --amend -m "$commit_message"; break;;
@@ -120,7 +127,8 @@ if [ ! -z "$amendable_hash" ]; then
 else
   # not amendable
   if [ -z "$prev_commit_hash" ]; then
-    echo "Committing with message: '$commit_message'"
+    echo "Committing with message: ${Cblue}'$commit_message'${Creset}"
+    echo
     while true; do
       read -n 1 -p "Would you like to commit now? (Y/n): " choice
       case "$choice" in
