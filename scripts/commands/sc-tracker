@@ -30,11 +30,11 @@ fi
 users=($("./sc" 'get-users'))
 
 # Colors
-dirc="\x1b[36m"
-goodc="\x1b[38;5;49;1m"
-badc="\x1b[91m"
-progc="\x1b[33m"
-init="\x1b[0m"   # color reset
+dirc="$(color 'cyan')"
+goodc="$(color 'set8' 49 'bold')"
+badc="$(color 'br_red')"
+progc="$(color 'yellow')"
+init="$(color "reset")"   # color reset
 
 ### MAIN PART ###
 echo "###########"
