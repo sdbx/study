@@ -47,6 +47,8 @@
 # git config --global filter.indentation.smudge cat
 ```
 
+stdin으로 파일 내용 전달, stdout이 파일 내용이 됨
+
 드라이버(`indentation`)가 환경마다 없을 수 있으므로, 필터를 디자인 할 때 실패해도 문제 없도록 설계하는 것이 중요
 
 ### 레포지토리 내보내기
@@ -63,10 +65,12 @@ LAST_COMMIT export-subst
 # Last commit date: Tue Apr 21 08:38:48 2009 -0700 by Scott Chacon
 ```
 
-### 병합 전략
+### 병합 전략(응용)
 
 ```.gitattributes
 # 충돌시 ours만 사용
 database.xml merge=ours
 # git config --global merge.ours.driver true
 ```
+
+병합이 항상 성공하도록 만듦. 실제 병합 전략과 무관
