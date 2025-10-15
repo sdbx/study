@@ -21,7 +21,7 @@
    - .gitconfig 파일 내의 `diff.word.textconv` 옵션에 myformat-converter 프로그램 지정
 
 ## 키워드 확장(대체)
-- 파일이 checkout됐을때 특정 텍스트를 파일에 삽입하고 파일이 stage area에 들어가기 전에 그 텍스트를 제거할 수 있음
+- 파일이 checkout됐을때 특정 텍스트를 파일에 삽입하고 파일이 staging area에 들어가기 전에 그 텍스트를 제거할 수 있음
    - 예시: ident
       - 어트리뷰트 파일에 `*.txt ident` 라고 명시하고
       - 임의의 텍스트파일에 `$Id$`를 적어놓으면
