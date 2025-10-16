@@ -79,7 +79,7 @@
   - [8.2 Git Attributes](8.2/README.md)
   - [8.3 Git Hooks](8.3/README.md)
   - [8.4 An Example Git-Enforced Policy](8.4/README.md)
-  - 8.5 Summary
+  - [8.5 Summary](8.5/README.md)
 
 - 9 Git and Other Systems
   - 9.1 Git as a Client
