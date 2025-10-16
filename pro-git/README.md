@@ -82,7 +82,7 @@
   - [8.5 Summary](8.5/README.md)
 
 - 9 Git and Other Systems
-  - 9.1 Git as a Client
+  - [9.1 Git as a Client](9.1/README.md)
   - 9.2 Migrating to Git
   - 9.3 Summary
 
