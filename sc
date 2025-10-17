@@ -19,8 +19,8 @@ if [ -x "./.git/info/sc-$cmd" ]; then
   "./.git/info/sc-$cmd" $args
 elif [ -x "./scripts/commands/sc-$cmd" ]; then
   "./scripts/commands/sc-$cmd" $args
-elif [ -f "$PATH/sc-$cmd" ]; then
-  "$PATH/sc-$cmd" $args
+elif command -v "sc-$cmd" >/dev/null 2>&1; then
+  "sc-$cmd" $args
 else
   . "./scripts/lib/stdio"
   warn "'$cmd' is not a 'sc' command."
