@@ -20,7 +20,7 @@ bridge: 다른 VCS를 사용하는 개발자와 협업하기 위한 어댑터
 - 특징: DVCS, 많은 면에서 유사
 - `git-remote-hg` 설치 필요
 - 클론: URL에 `hg::` 접두사를 붙여서 클론
-- 참조는 `refs/hg`, `hrefs/notes/hg` 등에 별도로 관리
+- 참조는 `refs/hg`, `refs/notes/hg` 등에 별도로 관리
 - `cp .hgignore .git/info/exclude`
 - 워크플로 똑같음
 - 북마크와 브랜치
