@@ -15,9 +15,9 @@ fi
 project_root="$(dirname $0)"
 cd $project_root
 
-if [ -f "./.git/info/sc-$cmd" ]; then
+if [ -x "./.git/info/sc-$cmd" ]; then
   "./.git/info/sc-$cmd" $args
-elif [ -f "./scripts/commands/sc-$cmd" ]; then
+elif [ -x "./scripts/commands/sc-$cmd" ]; then
   "./scripts/commands/sc-$cmd" $args
 elif [ -f "$PATH/sc-$cmd" ]; then
   "$PATH/sc-$cmd" $args
