@@ -10,7 +10,7 @@ if [ "$1" = 'help' ]; then
   exit 0
 fi
 
-. "$(dirname "$0")/../lib/prelude"
+. "./scripts/lib/prelude"
 
 load-env
 verify-env
