@@ -1,0 +1,74 @@
+#!/bin/bash
+
+. 'scripts/lib/prelude'
+
+load-env
+verify-env
+
+cmd='cat'
+pager=
+
+function help {
+  echo 'usage: ./sc open <chapter-number> [author-name]'
+  echo "       ${Cyellow}-x${Creset}${Cdim}|${Creset}${Cyellow}--exec <cmd>${Creset}    " 'open the summary with given cmd'
+  echo "       ${Cyellow}-p${Creset}${Cdim}|${Creset}${Cyellow}--pager [pager]${Creset} " 'use a pager (default: less)'
+  echo "       ${Cyellow}-e${Creset}${Cdim}|${Creset}${Cyellow}--editor${Creset}        " 'use the EDITOR to open the summary'
+  echo "       ${Cyellow}-h${Creset}${Cdim}|${Creset}${Cyellow}--help${Creset}          " 'show this'
+}
+
+args=$(getopt --options 'ex:hp::' --longoptions 'editor,exec:,help,pager::' -- "${@}") || exit
+eval "set -- ${args}"
+
+while true; do
+  case "${1}" in
+    (-x|--exec)
+      cmd="$2"
+      shift 2
+    ;;
+    (-e|--editor)
+      cmd="$EDITOR"
+      shift
+    ;;
+    (-p|--pager)
+      pager="${2:-less}"
+      shift 2
+    ;;
+    (-h|--help)
+      help
+      exit 0
+    ;;
+    (--) shift; break;;
+    (*) exit 1;;
+  esac
+done
+
+directory="$1"
+
+if [ -z "$directory" ]; then
+  err '<chapter-number> needed'
+  help
+  exit 1
+fi
+
+author="${2:-$AUTHOR}"
+
+valid_authors=($(./sc get-users))
+
+search_text="\<$author\>"
+if [[ ! "${valid_authors[@]}" =~ $search_text ]]; then
+  err "author '$author' is not in valid authors: ${valid_authors[@]}"
+  exit 1
+fi
+
+path="$TEXTBOOK/$directory/$author.md"
+
+if [ ! -f "$path" ]; then
+  err "Path '$path' not exists"
+  exit 1
+fi
+
+if [ -z "$pager" ]; then
+  $cmd "$path"
+else
+  $cmd "$path" | $pager
+fi
