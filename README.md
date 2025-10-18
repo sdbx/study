@@ -21,17 +21,40 @@ pro-git
 
 ## Helper Scripts
 
-### add.sh
+Use `sc` to run project helper commands from any directory. It switches to the project root, identifies the appropriate subcommand, and executes it with your arguments.
 
-For example, if one would like to add a directory named `1.1`, one can execute the command `./add.sh 1.1`. That is, `add.sh` is a shell scripts which automates this task.
+### Quick Start
 
-Meanwhile, it is required to run `./add.sh init` first if one has never executed this script before.
+Run `./sc init` to create a .env file at the project root. Then edit it to customize the environment variables.
 
-### tracker.sh
-
-This shell script prints the progess which indicates how much sections each participant has read.
-
+```bash
+$ ./sc init
+# Then edit .env manually
 ```
-./tracker.sh     # prints the overall progress.
-./tracker sh 1   # prints the progress on the chapter one.
+
+### Add a Summary File
+
+Run `./sc add` with a subdirectory name to create a summary file, stage it, and commit it. It also creates or updates any related files or directories if necessary.
+
+```bash
+./sc add 5.3
+```
+
+This opens the editor to modify the summary file or the README file.
+
+### Fix the Summary File
+
+If the summary file contains errors or needs updates, run `./sc fix` with a subdirectory name to open your editor, edit the summary, and commit with a sensible default message or a custom one.
+
+```bash
+./sc fix 5.3
+```
+
+### Print Progress
+
+To print progress indicating how many sections each participant has read, run `./sc tracker`.
+
+```bash
+./sc tracker    # Prints overall progress.
+./sc tracker 5  # Prints progress for chapter 5.
 ```
