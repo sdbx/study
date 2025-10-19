@@ -88,7 +88,7 @@
 
 - 10 Git Internals
   - [10.1 Plumbing and Porcelain](10.1/README.md)
-  - 10.2 Git Objects
+  - [10.2 Git Objects](10.2/README.md)
   - 10.3 Git References
   - 10.4 Packfiles
   - 10.5 The Refspec
