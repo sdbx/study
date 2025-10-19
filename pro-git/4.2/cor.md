@@ -13,7 +13,7 @@
 - 먼저 기존 repo를 bare repo로 export해야 함.
 - 관습적으로 bare repo가 들어있는 디렉토리명은 `.git` 으로 끝남.
 - `git clone --bare <proj_name> <proj_name>.git`
-- `cp -Rf` (recursive, force) 로 복사하면 설정 파일에 약간의 차이가 있다고 하나 거의 비슷하다고 함.
+- clone에 bare옵션을 주는 대신, `cp -Rf` (recursive, force) 로 `.git` 자체를 복사하면 설정 파일에 약간의 차이가 있다고 하나 거의 비슷하다고 함.
 
 ## 서버에 놓기
 - 내가 ssh 접근을 할 수 있는 `git.example.com` 이라는 서버가 있다고 가정하자.
