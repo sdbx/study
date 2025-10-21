@@ -1,10 +1,10 @@
 # 10.3 Git Internals - Git References
 
-## 관련 plubming 명령
+## 관련 plumbing 명령
 
 - `git-update-ref`: 참조에 저장된 오브젝트 이름을 안전하게 업데이트
   - `<ref> <new-oid>`: `<ref>`에 `<new-oid>`를 저장
-- `git-symbolic-ref`: 심볼릭 링크를 읽거나, 쓰거나, 삭제
+- `git-symbolic-ref`: 심볼릭 참조를 읽거나, 쓰거나, 삭제
   - `<name>`: 읽기
   - `<name> <ref>`: 쓰기
   - `-d|--delete <name>`: 삭제
@@ -28,7 +28,7 @@ $ cat .git/refs/heads/main
 
 ### HEAD
 
-- 보통 브랜치에 대한 심볼릭 참조임
+- 현재 브랜치에 대한 심볼릭 참조임
 - detached HEAD: 일반 참조. 태그, 커밋, 원격 브랜치를 체크아웃할 때 발생
 - `git commit` 실행시, 커밋 객체를 생성하고, HEAD가 가리키는 SHA-1 값을 커밋의 부모로 지정
 
