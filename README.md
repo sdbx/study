@@ -21,7 +21,7 @@ pro-git
 
 ## Helper Scripts
 
-Use `sc` to run project helper commands from any directory. It switches to the project root, identifies the appropriate subcommand, and executes it with your arguments.
+Use `sc` to run project helper commands from any directory. It switches to the project root, identifies the appropriate subcommand, and executes it with your arguments. In addition to the listed subcommands, custom commands can be easily added. For more details, see PR #7.
 
 ### Quick Start
 
