@@ -45,7 +45,7 @@
 1. `git verify-pack`을 정렬하여 큰 객체 식별
    - `git verify-pack -v .git/objects/pack/<pack>.idx | sort -k 3 -n | tail -3`
 1. 모든 커밋에서 해당 blob 객체 필터링
-   - `git ver-list --objects --all | grep <blob_id>`
+   - `git rev-list --objects --all | grep <blob_id>`
    - `--objects`: 커밋과 연관된 객체 ID도 출력
 1. `filter-branch`등으로 해당 파일 제거
    - WD로 불러오지 않고 인덱스에서 작업하면 더 빠름
