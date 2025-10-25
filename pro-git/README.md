@@ -94,7 +94,7 @@
   - [10.5 The Refspec](10.5/README.md)
   - [10.6 Transfer Protocols](10.6/README.md)
   - [10.7 Maintenance and Data Recovery](10.7/README.md)
-  - 10.8 Environment Variables
+  - [10.8 Environment Variables](10.8/README.md)
   - 10.9 Summary
 
 - A1 Appendix A: Git in Other Environments
