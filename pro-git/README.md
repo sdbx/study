@@ -113,7 +113,7 @@
   - [A2.2 Libgit2](A2.2/README.md)
   - [A2.3 JGit](A2.3/README.md)
   - [A2.4 go-git](A2.4/README.md)
-  - A2.5 Dulwich
+  - [A2.5 Dulwich](A2.5/README.md)
 
 - A3 Appendix C: Git Commands
   - A3.1 Setup and Config
