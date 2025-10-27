@@ -102,7 +102,7 @@
   - [A1.2 Git in Visual Studio](A1.2/README.md)
   - [A1.3 Git in Visual Studio Code](A1.3/README.md)
   - A1.4 Git in IntelliJ / PyCharm / WebStorm / PhpStorm / RubyMine
-  - A1.5 Git in Sublime Text
+  - [A1.5 Git in Sublime Text](A1.5/README.md)
   - A1.6 Git in Bash
   - A1.7 Git in Zsh
   - A1.8 Git in PowerShell
