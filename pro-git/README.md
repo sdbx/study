@@ -98,7 +98,7 @@
   - 10.9 Summary
 
 - A1 Appendix A: Git in Other Environments
-  - A1.1 Graphical Interfaces
+  - [A1.1 Graphical Interfaces](A1.1/README.md)
   - A1.2 Git in Visual Studio
   - A1.3 Git in Visual Studio Code
   - A1.4 Git in IntelliJ / PyCharm / WebStorm / PhpStorm / RubyMine
