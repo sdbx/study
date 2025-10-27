@@ -105,7 +105,7 @@
   - [A1.5 Git in Sublime Text](A1.5/README.md)
   - [A1.6 Git in Bash](A1.6/README.md)
   - [A1.7 Git in Zsh](A1.7/README.md)
-  - A1.8 Git in PowerShell
+  - [A1.8 Git in PowerShell](A1.8/README.md)
   - A1.9 Summary
 
 - A2 Appendix B: Embedding Git in your Applications
