@@ -109,7 +109,7 @@
   - [A1.9 Summary](A1.9/README.md)
 
 - A2 Appendix B: Embedding Git in your Applications
-  - A2.1 Command-line Git
+  - [A2.1 Command-line Git](A2.1/README.md)
   - A2.2 Libgit2
   - A2.3 JGit
   - A2.4 go-git
