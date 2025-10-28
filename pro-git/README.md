@@ -124,7 +124,7 @@
   - [A3.5 Sharping and Updating Projects](A3.5/README.md)
   - [A3.6 Inspection and Comparison](A3.6/README.md)
   - [A3.7 Debugging](A3.7/README.md)
-  - A3.8 Patching
+  - [A3.8 Patching](A3.8/README.md)
   - A3.9 Email
   - A3.10 External Systems
   - A3.11 Administration
