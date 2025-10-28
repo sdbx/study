@@ -126,6 +126,6 @@
   - [A3.7 Debugging](A3.7/README.md)
   - [A3.8 Patching](A3.8/README.md)
   - [A3.9 Email](A3.9/README.md)
-  - A3.10 External Systems
+  - [A3.10 External Systems](A3.10/README.md)
   - A3.11 Administration
   - A3.12 Plumbing Commands
