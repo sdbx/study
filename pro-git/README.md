@@ -122,7 +122,7 @@
   - [A3.3 Basic Snapshotting](A3.3/README.md)
   - [A3.4 Branching and Merging](A3.4/README.md)
   - [A3.5 Sharping and Updating Projects](A3.5/README.md)
-  - A3.6 Inspection and Comparison
+  - [A3.6 Inspection and Comparison](A3.6/README.md)
   - A3.7 Debugging
   - A3.8 Patching
   - A3.9 Email
