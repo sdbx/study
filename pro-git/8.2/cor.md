@@ -7,7 +7,7 @@
 ## 개요
 - git attribute = 서브디렉토리나 파일의 subset에만 적용할 수 있는 설정 (path-specific)
 - 어트리뷰트를 저장하는 파일
-   - 디렉토리 중 하나 (일반적으로 프로젝트 root) 내의 `.gitattribute` 파일
+   - 디렉토리 중 하나 (일반적으로 프로젝트 root) 내의 `.gitattributes` 파일
    - 혹은 `.git/info/attributes`에 저장해 커밋하지 않을 수 있음
 - 어트리뷰트를 사용해 할 수 있는 것
    - 개별 파일이나 디렉토리에 대해 별도의 병합 전략 지정
