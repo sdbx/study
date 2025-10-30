@@ -84,7 +84,7 @@
 - 9 Git and Other Systems
   - [9.1 Git as a Client](9.1/README.md)
   - [9.2 Migrating to Git](9.2/README.md)
-  - 9.3 Summary
+  - [9.3 Summary](9.3/README.md)
 
 - 10 Git Internals
   - [10.1 Plumbing and Porcelain](10.1/README.md)
