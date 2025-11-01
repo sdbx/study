@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository is built in order to store the memos written as a result of learning git from reading [_Pro Git (2nd edition)_](https://git-scm.com/book/en/v2).
+This repository was built in order to store the memos written as a result of learning git from reading [_Pro Git (2nd edition)_](https://git-scm.com/book/en/v2).
 
 ### Memorial
 
