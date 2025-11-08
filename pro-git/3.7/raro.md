@@ -45,7 +45,7 @@ $ git branch -v           # 브랜치 목록 자세히
 $ git branch -vv          # 브랜치 목록 자세히 + tracking branch
 $ git branch --merged     # 현재 브랜치에 병합된 브랜치만
 $ git branch --no-merged  # 현재 브랜치에 병합이 안 된 브랜치만
-$ git branch --merge main # 기준 브랜치 명시
+$ git branch --merged main # 기준 브랜치 명시
 
 $ git branch testing      # 브랜치 생성
 $ git branch -d testing   # 브랜치 삭제

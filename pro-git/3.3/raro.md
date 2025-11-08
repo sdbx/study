@@ -33,7 +33,7 @@ $ git branch --no-merged
   testing
 
 # 기준 브랜치 명시 가능(다른 브랜치에 있을 때 유용)
-$ git branch --merge main
+$ git branch --merged main
 ```
 
 병합된 브랜치는 `git branch -d`로 제거 가능
